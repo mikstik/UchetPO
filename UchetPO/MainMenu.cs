@@ -85,5 +85,32 @@ namespace UchetPO
         {
             WelcomeText.Text = "Добро пожаловать, " + Program.Name + "!";
         }
+
+        private void PersonalCustom_Click(object sender, EventArgs e)
+        {
+            Form Acc = new Account();
+            Acc.MdiParent = this;
+            Acc.AutoScroll = false;
+            Acc.Dock = DockStyle.Fill;
+            Acc.Show();
+        }
+
+        private void Settings_Click(object sender, EventArgs e)
+        {
+            Form Set = new Settings();
+            Set.MdiParent = this;
+            Set.AutoScroll = false;
+            Set.Dock = DockStyle.Fill;
+            Set.Show();
+        }
+
+        private void LisenceButton_Click(object sender, EventArgs e)
+        {
+            Form Buy = new BuyLicense();
+            Buy.MdiParent = this;
+            Buy.AutoScroll = false;
+            Buy.Dock = DockStyle.Fill;
+            Buy.Show();
+        }
     }
 }

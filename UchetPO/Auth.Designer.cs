@@ -39,8 +39,6 @@
             this.PromptPass = new System.Windows.Forms.PictureBox();
             this.KeyBox = new System.Windows.Forms.PictureBox();
             this.EmailBox = new System.Windows.Forms.PictureBox();
-            this.Registration = new System.Windows.Forms.Button();
-            this.EnterApp = new System.Windows.Forms.Button();
             this.TypeLogo = new System.Windows.Forms.PictureBox();
             this.PasswordBox = new System.Windows.Forms.TextBox();
             this.LoginBox = new System.Windows.Forms.TextBox();
@@ -49,6 +47,8 @@
             this.Line1 = new System.Windows.Forms.Label();
             this.Line2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Registration = new System.Windows.Forms.Button();
+            this.EnterApp = new System.Windows.Forms.Button();
             this.AuthPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PromptPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KeyBox)).BeginInit();
@@ -211,40 +211,6 @@
             this.EmailBox.TabIndex = 11;
             this.EmailBox.TabStop = false;
             // 
-            // Registration
-            // 
-            this.Registration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Registration.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.Registration.FlatAppearance.BorderSize = 2;
-            this.Registration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Registration.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Registration.ForeColor = System.Drawing.Color.White;
-            this.Registration.Location = new System.Drawing.Point(70, 369);
-            this.Registration.Name = "Registration";
-            this.Registration.Size = new System.Drawing.Size(266, 46);
-            this.Registration.TabIndex = 8;
-            this.Registration.Text = "Регистрация";
-            this.Registration.UseVisualStyleBackColor = false;
-            this.Registration.Click += new System.EventHandler(this.Registration_Click);
-            // 
-            // EnterApp
-            // 
-            this.EnterApp.BackColor = System.Drawing.Color.Turquoise;
-            this.EnterApp.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.EnterApp.FlatAppearance.BorderSize = 0;
-            this.EnterApp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(47)))), ((int)(((byte)(60)))));
-            this.EnterApp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.EnterApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnterApp.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EnterApp.ForeColor = System.Drawing.Color.Black;
-            this.EnterApp.Location = new System.Drawing.Point(70, 310);
-            this.EnterApp.Name = "EnterApp";
-            this.EnterApp.Size = new System.Drawing.Size(266, 49);
-            this.EnterApp.TabIndex = 7;
-            this.EnterApp.Text = "Войти";
-            this.EnterApp.UseVisualStyleBackColor = false;
-            this.EnterApp.Click += new System.EventHandler(this.EnterApp_Click);
-            // 
             // TypeLogo
             // 
             this.TypeLogo.Image = ((System.Drawing.Image)(resources.GetObject("TypeLogo.Image")));
@@ -333,6 +299,40 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // Registration
+            // 
+            this.Registration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Registration.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Registration.FlatAppearance.BorderSize = 2;
+            this.Registration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Registration.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Registration.ForeColor = System.Drawing.Color.White;
+            this.Registration.Location = new System.Drawing.Point(70, 369);
+            this.Registration.Name = "Registration";
+            this.Registration.Size = new System.Drawing.Size(266, 46);
+            this.Registration.TabIndex = 8;
+            this.Registration.Text = "Регистрация";
+            this.Registration.UseVisualStyleBackColor = false;
+            this.Registration.Click += new System.EventHandler(this.Registration_Click);
+            // 
+            // EnterApp
+            // 
+            this.EnterApp.BackColor = System.Drawing.Color.Turquoise;
+            this.EnterApp.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.EnterApp.FlatAppearance.BorderSize = 0;
+            this.EnterApp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(47)))), ((int)(((byte)(60)))));
+            this.EnterApp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.EnterApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnterApp.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EnterApp.ForeColor = System.Drawing.Color.Black;
+            this.EnterApp.Location = new System.Drawing.Point(70, 310);
+            this.EnterApp.Name = "EnterApp";
+            this.EnterApp.Size = new System.Drawing.Size(266, 49);
+            this.EnterApp.TabIndex = 7;
+            this.EnterApp.Text = "Войти";
+            this.EnterApp.UseVisualStyleBackColor = false;
+            this.EnterApp.Click += new System.EventHandler(this.EnterApp_Click);
+            // 
             // Auth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,8 +362,6 @@
         private System.Windows.Forms.PictureBox EmailBox;
         private System.Windows.Forms.Label Line1;
         private System.Windows.Forms.Label Line2;
-        private System.Windows.Forms.Button Registration;
-        private System.Windows.Forms.Button EnterApp;
         private System.Windows.Forms.PictureBox TypeLogo;
         private System.Windows.Forms.TextBox PasswordBox;
         private System.Windows.Forms.TextBox LoginBox;
@@ -377,6 +375,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox RememberUser;
+        private System.Windows.Forms.Button Registration;
+        private System.Windows.Forms.Button EnterApp;
     }
 }
 
