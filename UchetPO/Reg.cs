@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using md5Crypt;
+using praktikaProject.Presenter;
 
 namespace UchetPO
 {
@@ -65,7 +66,8 @@ namespace UchetPO
                     command.Parameters.AddWithValue("Mobile", MobilBox.Text);
                     await command.ExecuteNonQueryAsync();
                     MessageBox.Show("Регистрация прошла успешно! Добро пожаловать, " + NameBox.Text + "!");
-
+                    var SaveMeHalper = new SaveMeHelper();
+                    SaveMeHalper.RememberUser(LoginBox.Text, PasswordBox.Text);
                     Form Auth = new Auth();
                     Close();
                     Auth.Show();

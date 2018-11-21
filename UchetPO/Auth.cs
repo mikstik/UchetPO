@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using Microsoft.Win32;
 using System.Data.Sql;
 using md5Crypt;
+using praktikaProject.Presenter;
 
 namespace UchetPO
 {
@@ -68,11 +69,24 @@ namespace UchetPO
                     con.Open();
                     SqlCommand command = new SqlCommand("Select Name From Account where Login = '" + LoginBox.Text + "' and Password = '" + cryptpass + "'", con);
                     string namesotr = command.ExecuteScalar().ToString();
+                    SqlCommand id_account = new SqlCommand("Select Id From Account where Login = '" + LoginBox.Text + "' and Password = '" + cryptpass + "'", con);
+                    string id_acc = id_account.ExecuteScalar().ToString();
                     Program.Name = namesotr;
+                    Program.Id_Acc = id_acc;
                     con.Close();
                     Form Main = new MainMenu();
                     Main.Show();
                     Hide();
+                    if (RememberUser.Value == true)
+                    {
+                        var SaveMeHalper = new SaveMeHelper();
+                        SaveMeHalper.RememberUser(LoginBox.Text, PasswordBox.Text);
+                    }
+                    else
+                    {
+                        var SaveMeHalper = new SaveMeHelper();
+                        SaveMeHalper.EraseUser();
+                    }
                 }
                 else
                 {
@@ -88,10 +102,21 @@ namespace UchetPO
             }
         }
 
-        private void LoginBox_VisibleChanged(object sender, EventArgs e)
+        private void Auth_Load(object sender, EventArgs e)
         {
-            LoginBox.Text = Program.Autolog;
-            PasswordBox.Text = Program.Autopass;
+            var SaveMeHalper = new SaveMeHelper();
+            SaveMeHalper.ReadPass(out string login, out string password);
+            LoginBox.Text = login;
+            PasswordBox.Text = password;
+
+            if (!string.IsNullOrEmpty(LoginBox.Text) && !string.IsNullOrEmpty(PasswordBox.Text))
+            {
+                RememberUser.Value = true;
+            }
+            else
+            {
+                RememberUser.Value = false;
+            }
         }
     }
 }

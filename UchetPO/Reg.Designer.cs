@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reg));
             this.AuthPanel = new System.Windows.Forms.Panel();
+            this.MobilBox = new System.Windows.Forms.MaskedTextBox();
             this.NumLabel = new System.Windows.Forms.Label();
             this.MobilePictureBox = new System.Windows.Forms.PictureBox();
-            this.MobilBox = new System.Windows.Forms.TextBox();
             this.Line5 = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.RepeatPassLabel = new System.Windows.Forms.Label();
@@ -92,9 +92,9 @@
             // AuthPanel
             // 
             this.AuthPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.AuthPanel.Controls.Add(this.MobilBox);
             this.AuthPanel.Controls.Add(this.NumLabel);
             this.AuthPanel.Controls.Add(this.MobilePictureBox);
-            this.AuthPanel.Controls.Add(this.MobilBox);
             this.AuthPanel.Controls.Add(this.Line5);
             this.AuthPanel.Controls.Add(this.NameLabel);
             this.AuthPanel.Controls.Add(this.RepeatPassLabel);
@@ -126,6 +126,18 @@
             this.AuthPanel.Size = new System.Drawing.Size(428, 620);
             this.AuthPanel.TabIndex = 3;
             // 
+            // MobilBox
+            // 
+            this.MobilBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.MobilBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MobilBox.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MobilBox.ForeColor = System.Drawing.Color.White;
+            this.MobilBox.Location = new System.Drawing.Point(127, 452);
+            this.MobilBox.Mask = "+7 (999) 999-99-99";
+            this.MobilBox.Name = "MobilBox";
+            this.MobilBox.Size = new System.Drawing.Size(219, 26);
+            this.MobilBox.TabIndex = 30;
+            // 
             // NumLabel
             // 
             this.NumLabel.AutoSize = true;
@@ -146,17 +158,6 @@
             this.MobilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MobilePictureBox.TabIndex = 28;
             this.MobilePictureBox.TabStop = false;
-            // 
-            // MobilBox
-            // 
-            this.MobilBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.MobilBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MobilBox.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MobilBox.ForeColor = System.Drawing.Color.White;
-            this.MobilBox.Location = new System.Drawing.Point(127, 452);
-            this.MobilBox.Name = "MobilBox";
-            this.MobilBox.Size = new System.Drawing.Size(219, 26);
-            this.MobilBox.TabIndex = 26;
             // 
             // Line5
             // 
@@ -209,9 +210,9 @@
             this.EmailLabel.ForeColor = System.Drawing.Color.White;
             this.EmailLabel.Location = new System.Drawing.Point(77, 175);
             this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(94, 17);
+            this.EmailLabel.Size = new System.Drawing.Size(152, 17);
             this.EmailLabel.TabIndex = 22;
-            this.EmailLabel.Text = "Введите E-mail";
+            this.EmailLabel.Text = "Введите E-mail или логин";
             // 
             // NameImageBox
             // 
@@ -230,6 +231,7 @@
             this.NameBox.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NameBox.ForeColor = System.Drawing.Color.White;
             this.NameBox.Location = new System.Drawing.Point(127, 381);
+            this.NameBox.MaxLength = 64;
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(219, 26);
             this.NameBox.TabIndex = 19;
@@ -350,6 +352,7 @@
             this.PasswordBox.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PasswordBox.ForeColor = System.Drawing.Color.White;
             this.PasswordBox.Location = new System.Drawing.Point(127, 218);
+            this.PasswordBox.MaxLength = 63;
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.PasswordChar = '•';
             this.PasswordBox.Size = new System.Drawing.Size(188, 26);
@@ -362,6 +365,7 @@
             this.LoginBox.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LoginBox.ForeColor = System.Drawing.Color.White;
             this.LoginBox.Location = new System.Drawing.Point(127, 139);
+            this.LoginBox.MaxLength = 63;
             this.LoginBox.Name = "LoginBox";
             this.LoginBox.Size = new System.Drawing.Size(219, 26);
             this.LoginBox.TabIndex = 3;
@@ -417,6 +421,7 @@
             this.RepeatPassword.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RepeatPassword.ForeColor = System.Drawing.Color.White;
             this.RepeatPassword.Location = new System.Drawing.Point(127, 301);
+            this.RepeatPassword.MaxLength = 63;
             this.RepeatPassword.Name = "RepeatPassword";
             this.RepeatPassword.PasswordChar = '•';
             this.RepeatPassword.Size = new System.Drawing.Size(219, 26);
@@ -668,7 +673,6 @@
         private System.Windows.Forms.PictureBox PhonePicture;
         private System.Windows.Forms.Label NumLabel;
         private System.Windows.Forms.PictureBox MobilePictureBox;
-        private System.Windows.Forms.TextBox MobilBox;
         private System.Windows.Forms.Label Line5;
         private System.Windows.Forms.Panel MobilPanel;
         private System.Windows.Forms.Button Exit;
@@ -681,5 +685,6 @@
         private System.Windows.Forms.Button SendButton;
         private System.Windows.Forms.TextBox CodeBox;
         private System.Windows.Forms.PictureBox MobilPicureBox;
+        private System.Windows.Forms.MaskedTextBox MobilBox;
     }
 }

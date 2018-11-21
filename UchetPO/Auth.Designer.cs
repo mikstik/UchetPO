@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Auth));
             this.AuthPanel = new System.Windows.Forms.Panel();
-            this.RememberUser = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -39,6 +38,8 @@
             this.PromptPass = new System.Windows.Forms.PictureBox();
             this.KeyBox = new System.Windows.Forms.PictureBox();
             this.EmailBox = new System.Windows.Forms.PictureBox();
+            this.Registration = new System.Windows.Forms.Button();
+            this.EnterApp = new System.Windows.Forms.Button();
             this.TypeLogo = new System.Windows.Forms.PictureBox();
             this.PasswordBox = new System.Windows.Forms.TextBox();
             this.LoginBox = new System.Windows.Forms.TextBox();
@@ -47,8 +48,8 @@
             this.Line1 = new System.Windows.Forms.Label();
             this.Line2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Registration = new System.Windows.Forms.Button();
-            this.EnterApp = new System.Windows.Forms.Button();
+            this.RememberUser = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.RememberLabel = new System.Windows.Forms.Label();
             this.AuthPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PromptPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KeyBox)).BeginInit();
@@ -60,6 +61,7 @@
             // AuthPanel
             // 
             this.AuthPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.AuthPanel.Controls.Add(this.RememberLabel);
             this.AuthPanel.Controls.Add(this.RememberUser);
             this.AuthPanel.Controls.Add(this.button3);
             this.AuthPanel.Controls.Add(this.button2);
@@ -83,25 +85,6 @@
             this.AuthPanel.Name = "AuthPanel";
             this.AuthPanel.Size = new System.Drawing.Size(390, 438);
             this.AuthPanel.TabIndex = 1;
-            // 
-            // RememberUser
-            // 
-            this.RememberUser.Appearance = System.Windows.Forms.Appearance.Button;
-            this.RememberUser.AutoSize = true;
-            this.RememberUser.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.RememberUser.FlatAppearance.BorderSize = 0;
-            this.RememberUser.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(118)))), ((int)(((byte)(161)))));
-            this.RememberUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(118)))), ((int)(((byte)(161)))));
-            this.RememberUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
-            this.RememberUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RememberUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RememberUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.RememberUser.Location = new System.Drawing.Point(70, 277);
-            this.RememberUser.Name = "RememberUser";
-            this.RememberUser.Size = new System.Drawing.Size(130, 27);
-            this.RememberUser.TabIndex = 19;
-            this.RememberUser.Text = "Запомнить меня!";
-            this.RememberUser.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -211,6 +194,40 @@
             this.EmailBox.TabIndex = 11;
             this.EmailBox.TabStop = false;
             // 
+            // Registration
+            // 
+            this.Registration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Registration.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Registration.FlatAppearance.BorderSize = 2;
+            this.Registration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Registration.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Registration.ForeColor = System.Drawing.Color.White;
+            this.Registration.Location = new System.Drawing.Point(70, 371);
+            this.Registration.Name = "Registration";
+            this.Registration.Size = new System.Drawing.Size(266, 46);
+            this.Registration.TabIndex = 8;
+            this.Registration.Text = "Регистрация";
+            this.Registration.UseVisualStyleBackColor = false;
+            this.Registration.Click += new System.EventHandler(this.Registration_Click);
+            // 
+            // EnterApp
+            // 
+            this.EnterApp.BackColor = System.Drawing.Color.Turquoise;
+            this.EnterApp.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.EnterApp.FlatAppearance.BorderSize = 0;
+            this.EnterApp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(47)))), ((int)(((byte)(60)))));
+            this.EnterApp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.EnterApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnterApp.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EnterApp.ForeColor = System.Drawing.Color.Black;
+            this.EnterApp.Location = new System.Drawing.Point(70, 310);
+            this.EnterApp.Name = "EnterApp";
+            this.EnterApp.Size = new System.Drawing.Size(266, 49);
+            this.EnterApp.TabIndex = 7;
+            this.EnterApp.Text = "Войти";
+            this.EnterApp.UseVisualStyleBackColor = false;
+            this.EnterApp.Click += new System.EventHandler(this.EnterApp_Click);
+            // 
             // TypeLogo
             // 
             this.TypeLogo.Image = ((System.Drawing.Image)(resources.GetObject("TypeLogo.Image")));
@@ -237,13 +254,12 @@
             // 
             this.LoginBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.LoginBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.LoginBox.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LoginBox.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LoginBox.ForeColor = System.Drawing.Color.White;
             this.LoginBox.Location = new System.Drawing.Point(119, 157);
             this.LoginBox.Name = "LoginBox";
             this.LoginBox.Size = new System.Drawing.Size(210, 26);
             this.LoginBox.TabIndex = 3;
-            this.LoginBox.VisibleChanged += new System.EventHandler(this.LoginBox_VisibleChanged);
             // 
             // LabelEnter
             // 
@@ -299,39 +315,30 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // Registration
+            // RememberUser
             // 
-            this.Registration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Registration.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.Registration.FlatAppearance.BorderSize = 2;
-            this.Registration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Registration.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Registration.ForeColor = System.Drawing.Color.White;
-            this.Registration.Location = new System.Drawing.Point(70, 369);
-            this.Registration.Name = "Registration";
-            this.Registration.Size = new System.Drawing.Size(266, 46);
-            this.Registration.TabIndex = 8;
-            this.Registration.Text = "Регистрация";
-            this.Registration.UseVisualStyleBackColor = false;
-            this.Registration.Click += new System.EventHandler(this.Registration_Click);
+            this.RememberUser.BackColor = System.Drawing.Color.Transparent;
+            this.RememberUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RememberUser.BackgroundImage")));
+            this.RememberUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RememberUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RememberUser.Location = new System.Drawing.Point(70, 280);
+            this.RememberUser.Name = "RememberUser";
+            this.RememberUser.OffColor = System.Drawing.Color.Gray;
+            this.RememberUser.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
+            this.RememberUser.Size = new System.Drawing.Size(35, 20);
+            this.RememberUser.TabIndex = 20;
+            this.RememberUser.Value = false;
             // 
-            // EnterApp
+            // RememberLabel
             // 
-            this.EnterApp.BackColor = System.Drawing.Color.Turquoise;
-            this.EnterApp.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.EnterApp.FlatAppearance.BorderSize = 0;
-            this.EnterApp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(47)))), ((int)(((byte)(60)))));
-            this.EnterApp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.EnterApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnterApp.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EnterApp.ForeColor = System.Drawing.Color.Black;
-            this.EnterApp.Location = new System.Drawing.Point(70, 310);
-            this.EnterApp.Name = "EnterApp";
-            this.EnterApp.Size = new System.Drawing.Size(266, 49);
-            this.EnterApp.TabIndex = 7;
-            this.EnterApp.Text = "Войти";
-            this.EnterApp.UseVisualStyleBackColor = false;
-            this.EnterApp.Click += new System.EventHandler(this.EnterApp_Click);
+            this.RememberLabel.AutoSize = true;
+            this.RememberLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RememberLabel.ForeColor = System.Drawing.Color.White;
+            this.RememberLabel.Location = new System.Drawing.Point(115, 280);
+            this.RememberLabel.Name = "RememberLabel";
+            this.RememberLabel.Size = new System.Drawing.Size(134, 20);
+            this.RememberLabel.TabIndex = 21;
+            this.RememberLabel.Text = "Запомнить меня";
             // 
             // Auth
             // 
@@ -345,6 +352,7 @@
             this.Name = "Auth";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Auth_Load);
             this.AuthPanel.ResumeLayout(false);
             this.AuthPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PromptPass)).EndInit();
@@ -374,9 +382,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox RememberUser;
         private System.Windows.Forms.Button Registration;
         private System.Windows.Forms.Button EnterApp;
+        private System.Windows.Forms.Label RememberLabel;
+        private Bunifu.Framework.UI.BunifuiOSSwitch RememberUser;
     }
 }
 

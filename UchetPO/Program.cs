@@ -24,6 +24,7 @@ namespace UchetPO
         public static string Server = "DESKTOP-2CITAU1\\SQLEXPRESS";
         public static string Autolog;
         public static string Autopass;
+        public static string Id_Acc;
         private static MainMenu MainMenu;
 
     }

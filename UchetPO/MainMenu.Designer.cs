@@ -32,8 +32,8 @@
             this.InstrumentalPanle = new System.Windows.Forms.Panel();
             this.SelecterLeft = new System.Windows.Forms.Panel();
             this.SelecterRight = new System.Windows.Forms.Panel();
+            this.Settings = new System.Windows.Forms.Button();
             this.PersonalCustom = new System.Windows.Forms.Button();
-            this.Exit = new System.Windows.Forms.Button();
             this.ChangeUser = new System.Windows.Forms.Button();
             this.About = new System.Windows.Forms.Button();
             this.AllPrograms = new System.Windows.Forms.Button();
@@ -41,20 +41,19 @@
             this.Home = new System.Windows.Forms.Button();
             this.LogoPanel = new System.Windows.Forms.Panel();
             this.LogoProgramBox = new System.Windows.Forms.PictureBox();
+            this.Exit = new System.Windows.Forms.Button();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.CloseWindows = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.WelcomeText = new System.Windows.Forms.Label();
             this.HomePanel = new System.Windows.Forms.Panel();
+            this.Setting = new System.Windows.Forms.Button();
+            this.AllProgram = new System.Windows.Forms.Button();
+            this.MyProgram = new System.Windows.Forms.Button();
+            this.Account = new System.Windows.Forms.Button();
             this.ActivePanel = new System.Windows.Forms.Panel();
             this.LisenceButton = new System.Windows.Forms.Button();
             this.ActiveLabel = new System.Windows.Forms.Label();
-            this.Settings = new System.Windows.Forms.Button();
-            this.MyProgram = new System.Windows.Forms.Button();
-            this.AllProgram = new System.Windows.Forms.Button();
-            this.Account = new System.Windows.Forms.Button();
-            this.Setting = new System.Windows.Forms.Button();
-            this.AboutProgram = new System.Windows.Forms.Button();
             this.InstrumentalPanle.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoProgramBox)).BeginInit();
@@ -80,7 +79,7 @@
             this.InstrumentalPanle.Dock = System.Windows.Forms.DockStyle.Left;
             this.InstrumentalPanle.Location = new System.Drawing.Point(0, 0);
             this.InstrumentalPanle.Name = "InstrumentalPanle";
-            this.InstrumentalPanle.Size = new System.Drawing.Size(190, 701);
+            this.InstrumentalPanle.Size = new System.Drawing.Size(190, 666);
             this.InstrumentalPanle.TabIndex = 0;
             // 
             // SelecterLeft
@@ -99,6 +98,27 @@
             this.SelecterRight.Size = new System.Drawing.Size(11, 54);
             this.SelecterRight.TabIndex = 15;
             // 
+            // Settings
+            // 
+            this.Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.Settings.Enabled = false;
+            this.Settings.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.Settings.FlatAppearance.BorderSize = 0;
+            this.Settings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Settings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Settings.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Settings.ForeColor = System.Drawing.Color.White;
+            this.Settings.Location = new System.Drawing.Point(0, 300);
+            this.Settings.Name = "Settings";
+            this.Settings.Size = new System.Drawing.Size(190, 50);
+            this.Settings.TabIndex = 17;
+            this.Settings.Text = "Настройки темы";
+            this.Settings.UseVisualStyleBackColor = false;
+            this.Settings.Click += new System.EventHandler(this.Setting_Click);
+            this.Settings.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Home_MouseClick);
+            this.Settings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MyPrograms_MouseDown);
+            // 
             // PersonalCustom
             // 
             this.PersonalCustom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
@@ -115,29 +135,9 @@
             this.PersonalCustom.TabIndex = 16;
             this.PersonalCustom.Text = "Личный кабинет";
             this.PersonalCustom.UseVisualStyleBackColor = false;
-            this.PersonalCustom.Click += new System.EventHandler(this.PersonalCustom_Click);
+            this.PersonalCustom.Click += new System.EventHandler(this.Account_Click);
             this.PersonalCustom.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Home_MouseClick);
             this.PersonalCustom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MyPrograms_MouseDown);
-            // 
-            // Exit
-            // 
-            this.Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.Exit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Exit.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.Exit.FlatAppearance.BorderSize = 0;
-            this.Exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.Exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Exit.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Exit.ForeColor = System.Drawing.Color.White;
-            this.Exit.Location = new System.Drawing.Point(0, 656);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(190, 45);
-            this.Exit.TabIndex = 13;
-            this.Exit.Text = "Выход";
-            this.Exit.UseVisualStyleBackColor = false;
-            this.Exit.Click += new System.EventHandler(this.ExitButton_Click);
-            this.Exit.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Home_MouseClick);
             // 
             // ChangeUser
             // 
@@ -150,7 +150,7 @@
             this.ChangeUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeUser.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ChangeUser.ForeColor = System.Drawing.Color.White;
-            this.ChangeUser.Location = new System.Drawing.Point(0, 612);
+            this.ChangeUser.Location = new System.Drawing.Point(0, 577);
             this.ChangeUser.Name = "ChangeUser";
             this.ChangeUser.Size = new System.Drawing.Size(190, 44);
             this.ChangeUser.TabIndex = 12;
@@ -196,7 +196,7 @@
             this.AllPrograms.TabIndex = 10;
             this.AllPrograms.Text = "Все программы";
             this.AllPrograms.UseVisualStyleBackColor = false;
-            this.AllPrograms.Click += new System.EventHandler(this.AllPrograms_Click);
+            this.AllPrograms.Click += new System.EventHandler(this.AllProgram_Click);
             this.AllPrograms.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Home_MouseClick);
             this.AllPrograms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MyPrograms_MouseDown);
             // 
@@ -216,7 +216,7 @@
             this.MyPrograms.TabIndex = 9;
             this.MyPrograms.Text = "Мои программы";
             this.MyPrograms.UseVisualStyleBackColor = false;
-            this.MyPrograms.Click += new System.EventHandler(this.MyPrograms_Click);
+            this.MyPrograms.Click += new System.EventHandler(this.MyProgram_Click);
             this.MyPrograms.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Home_MouseClick);
             this.MyPrograms.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MyPrograms_MouseDown);
             // 
@@ -259,6 +259,26 @@
             this.LogoProgramBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.LogoProgramBox.TabIndex = 2;
             this.LogoProgramBox.TabStop = false;
+            // 
+            // Exit
+            // 
+            this.Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.Exit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Exit.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.Exit.FlatAppearance.BorderSize = 0;
+            this.Exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.Exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Exit.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Exit.ForeColor = System.Drawing.Color.White;
+            this.Exit.Location = new System.Drawing.Point(0, 621);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(190, 45);
+            this.Exit.TabIndex = 13;
+            this.Exit.Text = "Выход";
+            this.Exit.UseVisualStyleBackColor = false;
+            this.Exit.Click += new System.EventHandler(this.ExitButton_Click);
+            this.Exit.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Home_MouseClick);
             // 
             // TopPanel
             // 
@@ -311,7 +331,7 @@
             this.WelcomeText.AutoSize = true;
             this.WelcomeText.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.WelcomeText.ForeColor = System.Drawing.Color.White;
-            this.WelcomeText.Location = new System.Drawing.Point(172, 11);
+            this.WelcomeText.Location = new System.Drawing.Point(199, 13);
             this.WelcomeText.Name = "WelcomeText";
             this.WelcomeText.Size = new System.Drawing.Size(0, 28);
             this.WelcomeText.TabIndex = 1;
@@ -319,103 +339,42 @@
             // HomePanel
             // 
             this.HomePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.HomePanel.Controls.Add(this.Account);
-            this.HomePanel.Controls.Add(this.MyProgram);
             this.HomePanel.Controls.Add(this.Setting);
             this.HomePanel.Controls.Add(this.AllProgram);
-            this.HomePanel.Controls.Add(this.AboutProgram);
-            this.HomePanel.Controls.Add(this.ActivePanel);
+            this.HomePanel.Controls.Add(this.MyProgram);
+            this.HomePanel.Controls.Add(this.Account);
             this.HomePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HomePanel.Location = new System.Drawing.Point(190, 50);
             this.HomePanel.Name = "HomePanel";
-            this.HomePanel.Size = new System.Drawing.Size(874, 651);
+            this.HomePanel.Size = new System.Drawing.Size(874, 616);
             this.HomePanel.TabIndex = 3;
             // 
-            // ActivePanel
+            // Setting
             // 
-            this.ActivePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ActivePanel.Controls.Add(this.LisenceButton);
-            this.ActivePanel.Controls.Add(this.ActiveLabel);
-            this.ActivePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ActivePanel.Location = new System.Drawing.Point(0, 616);
-            this.ActivePanel.Name = "ActivePanel";
-            this.ActivePanel.Size = new System.Drawing.Size(874, 35);
-            this.ActivePanel.TabIndex = 0;
-            // 
-            // LisenceButton
-            // 
-            this.LisenceButton.BackColor = System.Drawing.Color.Transparent;
-            this.LisenceButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.LisenceButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.LisenceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
-            this.LisenceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LisenceButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LisenceButton.ForeColor = System.Drawing.Color.White;
-            this.LisenceButton.Location = new System.Drawing.Point(673, 3);
-            this.LisenceButton.Name = "LisenceButton";
-            this.LisenceButton.Size = new System.Drawing.Size(92, 29);
-            this.LisenceButton.TabIndex = 16;
-            this.LisenceButton.Text = "Купить";
-            this.LisenceButton.UseVisualStyleBackColor = false;
-            this.LisenceButton.Click += new System.EventHandler(this.LisenceButton_Click);
-            // 
-            // ActiveLabel
-            // 
-            this.ActiveLabel.AutoSize = true;
-            this.ActiveLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ActiveLabel.ForeColor = System.Drawing.Color.White;
-            this.ActiveLabel.Location = new System.Drawing.Point(124, 8);
-            this.ActiveLabel.Name = "ActiveLabel";
-            this.ActiveLabel.Size = new System.Drawing.Size(533, 20);
-            this.ActiveLabel.TabIndex = 0;
-            this.ActiveLabel.Text = "Для получения полного функционала приобретите лицензию";
-            // 
-            // Settings
-            // 
-            this.Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.Settings.Enabled = false;
-            this.Settings.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.Settings.FlatAppearance.BorderSize = 0;
-            this.Settings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Settings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
-            this.Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Settings.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Settings.ForeColor = System.Drawing.Color.White;
-            this.Settings.Location = new System.Drawing.Point(0, 300);
-            this.Settings.Name = "Settings";
-            this.Settings.Size = new System.Drawing.Size(190, 50);
-            this.Settings.TabIndex = 17;
-            this.Settings.Text = "Настройки";
-            this.Settings.UseVisualStyleBackColor = false;
-            this.Settings.Click += new System.EventHandler(this.Settings_Click);
-            this.Settings.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Home_MouseClick);
-            this.Settings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MyPrograms_MouseDown);
-            // 
-            // MyProgram
-            // 
-            this.MyProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.MyProgram.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MyProgram.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.MyProgram.FlatAppearance.BorderSize = 0;
-            this.MyProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.MyProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
-            this.MyProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MyProgram.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MyProgram.ForeColor = System.Drawing.Color.White;
-            this.MyProgram.Image = ((System.Drawing.Image)(resources.GetObject("MyProgram.Image")));
-            this.MyProgram.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MyProgram.Location = new System.Drawing.Point(0, 139);
-            this.MyProgram.Name = "MyProgram";
-            this.MyProgram.Size = new System.Drawing.Size(874, 135);
-            this.MyProgram.TabIndex = 18;
-            this.MyProgram.Text = "Мои программы";
-            this.MyProgram.UseVisualStyleBackColor = false;
-            this.MyProgram.Click += new System.EventHandler(this.MyPrograms_Click);
+            this.Setting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Setting.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Setting.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.Setting.FlatAppearance.BorderSize = 0;
+            this.Setting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Setting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.Setting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Setting.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Setting.ForeColor = System.Drawing.Color.White;
+            this.Setting.Image = ((System.Drawing.Image)(resources.GetObject("Setting.Image")));
+            this.Setting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Setting.Location = new System.Drawing.Point(0, 462);
+            this.Setting.Name = "Setting";
+            this.Setting.Size = new System.Drawing.Size(874, 154);
+            this.Setting.TabIndex = 21;
+            this.Setting.Text = "Настройки темы";
+            this.Setting.UseVisualStyleBackColor = false;
+            this.Setting.Click += new System.EventHandler(this.Setting_Click);
+            this.Setting.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MyPrograms_MouseDown);
             // 
             // AllProgram
             // 
-            this.AllProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.AllProgram.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.AllProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.AllProgram.Dock = System.Windows.Forms.DockStyle.Top;
             this.AllProgram.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.AllProgram.FlatAppearance.BorderSize = 0;
             this.AllProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -425,18 +384,41 @@
             this.AllProgram.ForeColor = System.Drawing.Color.White;
             this.AllProgram.Image = ((System.Drawing.Image)(resources.GetObject("AllProgram.Image")));
             this.AllProgram.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AllProgram.Location = new System.Drawing.Point(0, 409);
+            this.AllProgram.Location = new System.Drawing.Point(0, 308);
             this.AllProgram.Name = "AllProgram";
-            this.AllProgram.Size = new System.Drawing.Size(874, 135);
+            this.AllProgram.Size = new System.Drawing.Size(874, 154);
             this.AllProgram.TabIndex = 19;
             this.AllProgram.Text = "Все программы";
             this.AllProgram.UseVisualStyleBackColor = false;
-            this.AllProgram.Click += new System.EventHandler(this.AllPrograms_Click);
+            this.AllProgram.Click += new System.EventHandler(this.AllProgram_Click);
+            this.AllProgram.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MyPrograms_MouseDown);
+            // 
+            // MyProgram
+            // 
+            this.MyProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.MyProgram.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MyProgram.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.MyProgram.FlatAppearance.BorderSize = 0;
+            this.MyProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.MyProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.MyProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MyProgram.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MyProgram.ForeColor = System.Drawing.Color.White;
+            this.MyProgram.Image = ((System.Drawing.Image)(resources.GetObject("MyProgram.Image")));
+            this.MyProgram.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MyProgram.Location = new System.Drawing.Point(0, 154);
+            this.MyProgram.Name = "MyProgram";
+            this.MyProgram.Size = new System.Drawing.Size(874, 154);
+            this.MyProgram.TabIndex = 18;
+            this.MyProgram.Text = "Мои программы";
+            this.MyProgram.UseVisualStyleBackColor = false;
+            this.MyProgram.Click += new System.EventHandler(this.MyProgram_Click);
+            this.MyProgram.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MyPrograms_MouseDown);
             // 
             // Account
             // 
             this.Account.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Account.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Account.Dock = System.Windows.Forms.DockStyle.Top;
             this.Account.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.Account.FlatAppearance.BorderSize = 0;
             this.Account.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -448,51 +430,52 @@
             this.Account.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Account.Location = new System.Drawing.Point(0, 0);
             this.Account.Name = "Account";
-            this.Account.Size = new System.Drawing.Size(874, 139);
+            this.Account.Size = new System.Drawing.Size(874, 154);
             this.Account.TabIndex = 20;
             this.Account.Text = "Личный кабинет";
             this.Account.UseVisualStyleBackColor = false;
+            this.Account.Click += new System.EventHandler(this.Account_Click);
+            this.Account.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MyPrograms_MouseDown);
             // 
-            // Setting
+            // ActivePanel
             // 
-            this.Setting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Setting.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Setting.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.Setting.FlatAppearance.BorderSize = 0;
-            this.Setting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Setting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
-            this.Setting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Setting.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Setting.ForeColor = System.Drawing.Color.White;
-            this.Setting.Image = ((System.Drawing.Image)(resources.GetObject("Setting.Image")));
-            this.Setting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Setting.Location = new System.Drawing.Point(0, 274);
-            this.Setting.Name = "Setting";
-            this.Setting.Size = new System.Drawing.Size(874, 135);
-            this.Setting.TabIndex = 21;
-            this.Setting.Text = "Настройки";
-            this.Setting.UseVisualStyleBackColor = false;
-            this.Setting.Click += new System.EventHandler(this.Settings_Click);
+            this.ActivePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ActivePanel.Controls.Add(this.LisenceButton);
+            this.ActivePanel.Controls.Add(this.ActiveLabel);
+            this.ActivePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ActivePanel.Location = new System.Drawing.Point(0, 666);
+            this.ActivePanel.Name = "ActivePanel";
+            this.ActivePanel.Size = new System.Drawing.Size(1064, 35);
+            this.ActivePanel.TabIndex = 0;
             // 
-            // AboutProgram
+            // LisenceButton
             // 
-            this.AboutProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.AboutProgram.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.AboutProgram.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.AboutProgram.FlatAppearance.BorderSize = 0;
-            this.AboutProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.AboutProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
-            this.AboutProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AboutProgram.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AboutProgram.ForeColor = System.Drawing.Color.White;
-            this.AboutProgram.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AboutProgram.Location = new System.Drawing.Point(0, 544);
-            this.AboutProgram.Name = "AboutProgram";
-            this.AboutProgram.Size = new System.Drawing.Size(874, 72);
-            this.AboutProgram.TabIndex = 22;
-            this.AboutProgram.Text = "О программе";
-            this.AboutProgram.UseVisualStyleBackColor = false;
-            this.AboutProgram.Click += new System.EventHandler(this.About_Click);
+            this.LisenceButton.BackColor = System.Drawing.Color.Transparent;
+            this.LisenceButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.LisenceButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.LisenceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.LisenceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LisenceButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LisenceButton.ForeColor = System.Drawing.Color.White;
+            this.LisenceButton.Location = new System.Drawing.Point(838, 3);
+            this.LisenceButton.Name = "LisenceButton";
+            this.LisenceButton.Size = new System.Drawing.Size(92, 29);
+            this.LisenceButton.TabIndex = 16;
+            this.LisenceButton.Text = "Купить";
+            this.LisenceButton.UseVisualStyleBackColor = false;
+            this.LisenceButton.Click += new System.EventHandler(this.LisenceButton_Click);
+            this.LisenceButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MyPrograms_MouseDown);
+            // 
+            // ActiveLabel
+            // 
+            this.ActiveLabel.AutoSize = true;
+            this.ActiveLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ActiveLabel.ForeColor = System.Drawing.Color.White;
+            this.ActiveLabel.Location = new System.Drawing.Point(279, 8);
+            this.ActiveLabel.Name = "ActiveLabel";
+            this.ActiveLabel.Size = new System.Drawing.Size(533, 20);
+            this.ActiveLabel.TabIndex = 0;
+            this.ActiveLabel.Text = "Для получения полного функционала приобретите лицензию";
             // 
             // MainMenu
             // 
@@ -503,6 +486,7 @@
             this.Controls.Add(this.HomePanel);
             this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.InstrumentalPanle);
+            this.Controls.Add(this.ActivePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.Name = "MainMenu";
@@ -548,6 +532,5 @@
         private System.Windows.Forms.Button MyProgram;
         private System.Windows.Forms.Button Setting;
         private System.Windows.Forms.Button AllProgram;
-        private System.Windows.Forms.Button AboutProgram;
     }
 }

@@ -44,41 +44,14 @@ namespace UchetPO
             HomePanel.Show();
         }
 
-        private void AllPrograms_Click(object sender, EventArgs e)
-        {
-            Form All = new AllPrograms();
-            All.MdiParent = this;
-            All.AutoScroll = false;
-            All.Dock = DockStyle.Fill;
-            All.Show();
-        }
-
         private void MyPrograms_MouseDown(object sender, MouseEventArgs e)
         {
-            HomePanel.Visible = false;
+            HomePanel.Hide();
         }
 
         private void Home_MouseDown(object sender, MouseEventArgs e)
         {
-            HomePanel.Visible = true;
-        }
-
-        private void MyPrograms_Click(object sender, EventArgs e)
-        {
-            Form My = new MyPrograms();
-            My.MdiParent = this;
-            My.AutoScroll = false;
-            My.Dock = DockStyle.Fill;
-            My.Show();
-        }
-
-        private void About_Click(object sender, EventArgs e)
-        {
-            Form About = new AboutProgram();
-            About.MdiParent = this;
-            About.AutoScroll = false;
-            About.Dock = DockStyle.Fill;
-            About.Show();
+            HomePanel.Show();
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
@@ -86,22 +59,40 @@ namespace UchetPO
             WelcomeText.Text = "Добро пожаловать, " + Program.Name + "!";
         }
 
-        private void PersonalCustom_Click(object sender, EventArgs e)
+        private void Account_Click(object sender, EventArgs e)
         {
             Form Acc = new Account();
             Acc.MdiParent = this;
             Acc.AutoScroll = false;
-            Acc.Dock = DockStyle.Fill;
             Acc.Show();
+            Acc.Dock = DockStyle.Fill;
         }
 
-        private void Settings_Click(object sender, EventArgs e)
+        private void MyProgram_Click(object sender, EventArgs e)
         {
-            Form Set = new Settings();
+            Form My = new MyPrograms();
+            My.MdiParent = this;
+            My.AutoScroll = false;
+            My.Show();
+            My.Dock = DockStyle.Fill;
+        }
+
+        private void Setting_Click(object sender, EventArgs e)
+        {
+            Form Set = new Setting();
             Set.MdiParent = this;
             Set.AutoScroll = false;
             Set.Dock = DockStyle.Fill;
             Set.Show();
+        }
+
+        private void AllProgram_Click(object sender, EventArgs e)
+        {
+            Form AllF = new AllPrograms();
+            AllF.MdiParent = this;
+            AllF.AutoScroll = false;
+            AllF.Dock = DockStyle.Fill;
+            AllF.Show();
         }
 
         private void LisenceButton_Click(object sender, EventArgs e)
@@ -111,6 +102,15 @@ namespace UchetPO
             Buy.AutoScroll = false;
             Buy.Dock = DockStyle.Fill;
             Buy.Show();
+        }
+
+        private void About_Click(object sender, EventArgs e)
+        {
+            Form About = new AboutProgram();
+            About.MdiParent = this;
+            About.AutoScroll = false;
+            About.Dock = DockStyle.Fill;
+            About.Show();
         }
     }
 }
