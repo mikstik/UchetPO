@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace UchetPO
 {
     public partial class MainMenu : Form
     {
+        string background;
         public MainMenu()
         {
             InitializeComponent();
@@ -22,7 +24,7 @@ namespace UchetPO
             Application.Exit();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void ChangeUser_Click(object sender, EventArgs e)
         {
             Form Auth = new Auth();
             Close();
@@ -95,15 +97,6 @@ namespace UchetPO
             AllF.Show();
         }
 
-        private void LisenceButton_Click(object sender, EventArgs e)
-        {
-            Form Buy = new BuyLicense();
-            Buy.MdiParent = this;
-            Buy.AutoScroll = false;
-            Buy.Dock = DockStyle.Fill;
-            Buy.Show();
-        }
-
         private void About_Click(object sender, EventArgs e)
         {
             Form About = new AboutProgram();
@@ -111,6 +104,24 @@ namespace UchetPO
             About.AutoScroll = false;
             About.Dock = DockStyle.Fill;
             About.Show();
+        }
+
+        private void LogoPanel_Paint(object sender, PaintEventArgs e)
+        {
+            try
+            {
+                RegistryKey currentUserKey = Registry.CurrentUser;
+                RegistryKey RK = currentUserKey.CreateSubKey("Design");
+                background = RK.GetValue("BackColor").ToString();
+                BackColor = ColorTranslator.FromHtml(background);
+                RK.Close();
+                LogoPanel.BackColor = ColorTranslator.FromHtml(background);
+                HomePanel.BackColor = ColorTranslator.FromHtml(background);
+            }
+            catch
+            {
+
+            }
         }
     }
 }

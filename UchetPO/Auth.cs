@@ -18,9 +18,12 @@ namespace UchetPO
 {
     public partial class Auth : Form
     {
-        string pdkl = @"Data Source=" + Program.Server + ";Initial Catalog = " + Program.Catalog + ";Persist Security Info=True;User ID=sa; Password =12345678";
-        SqlConnection connect;
-        string ServerInfo = string.Empty;
+        public string pdkl = "Data Source="+Program.Server+"\\"
+                             +Program.Version+
+                             ";Initial Catalog="+
+                             Program.Catalog+";Integrated Security=True";
+        string background;
+        //string pdkl = "Data Source=" + Program.Version + ";Initial Catalog = " + Program.Catalog + ";Persist Security Info=True";
         public Auth()
         {
             InitializeComponent();
@@ -59,7 +62,7 @@ namespace UchetPO
                 string cryptpass;
                 cryptpass = PasswordBox.Text;
                 cryptpass = md5_hash;
-                string connect = @"Data Source=" + Program.Server + ";Initial Catalog =" + Program.Catalog + ";Persist Security Info=True;User ID=sa; Password =12345678";
+                string connect = pdkl;
                 SqlConnection con = new SqlConnection(connect);
                 SqlDataAdapter sd = new SqlDataAdapter(@"Select Count (*) From Account where Login = '" + LoginBox.Text + "' and Password = '" + cryptpass + "'", con);
                 DataTable dt = new DataTable();
@@ -93,17 +96,19 @@ namespace UchetPO
                     MessageBox.Show("Неправильный логин или пароль!");
                     PasswordBox.Text = null;
                 }
-
+                con.Close();
+                con.Close();
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Ошибка подключения!");
                 PasswordBox.Text = null;
             }
         }
 
         private void Auth_Load(object sender, EventArgs e)
         {
+            Program.Server = System.Net.Dns.GetHostName();
             var SaveMeHalper = new SaveMeHelper();
             SaveMeHalper.ReadPass(out string login, out string password);
             LoginBox.Text = login;
@@ -117,6 +122,106 @@ namespace UchetPO
             {
                 RememberUser.Value = false;
             }
+            try
+            {
+                RegistryKey currentUserKey = Registry.CurrentUser;
+                RegistryKey RK = currentUserKey.CreateSubKey("Design");
+                background = RK.GetValue("BackColor").ToString();
+                BackColor = ColorTranslator.FromHtml(background);
+                RK.Close();
+                AuthPanel.BackColor = ColorTranslator.FromHtml(background);
+                LoginBox.BackColor = ColorTranslator.FromHtml(background);
+                PasswordBox.BackColor = ColorTranslator.FromHtml(background);
+            }
+            catch
+            {
+
+            }
         }
+
+        private async void GetServerList_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection sqlConn = new SqlConnection(pdkl))
+                {
+                    sqlConn.Open();
+
+                    SqlCommand sqlCmd = new SqlCommand(@"Server=" + Program.Server + ";Integrated Security=true");
+                    sqlCmd.Connection = sqlConn;
+                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    sqlCmd.CommandText = "sp_helpdb";
+
+                    SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+
+                    ServersList.Items.Clear();
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        ServersList.Items.Add(row["name"].ToString());
+                    }
+                    await sqlCmd.ExecuteNonQueryAsync();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("При получении списка баз данных произошла ошибка. Проверьте правильность указанного сервера и необходимости использования префикса СУБД.");
+                
+            }
+        }
+
+        private void Setting_Click(object sender, EventArgs e)
+        {
+            if (SettingPanel.Visible == true)
+            {
+                SettingPanel.Visible = false;
+            }
+            else
+            {
+                SettingPanel.Visible = true;
+            }
+        }
+
+        private void Accept_Click(object sender, EventArgs e)
+        {
+            Program.Server = ServerBox.Text;
+            Program.Version = SQLBox.Text;
+            if (Switcher.Value)
+            {
+                Program.Version = SQLBox.Text;
+            }
+            else
+            {
+                Program.Version = "";
+            }
+            pdkl = "Data Source=" + Program.Server + "\\" + Program.Version + ";Initial Catalog=" + Program.Catalog + ";Integrated Security=True";
+        }
+
+        private void Auto_Click(object sender, EventArgs e)
+        {
+            Program.Server = System.Net.Dns.GetHostName();
+            Program.Catalog = "UchetPO";
+            ServerBox.Text = Program.Server;
+            SQLBox.Text = "SQLEXPRESS";
+        }
+
+        private void AcceptCatalog_Click(object sender, EventArgs e)
+        {
+            Program.Catalog = ServersList.SelectedItem.ToString();
+        }
+
+        private void Switcher_OnValueChange(object sender, EventArgs e)
+        {
+            if (Switcher.Value)
+            {
+                SQLBox.Enabled = true;
+            }
+            else
+            {
+                SQLBox.Enabled = false;
+            }
+        }
+
     }
 }

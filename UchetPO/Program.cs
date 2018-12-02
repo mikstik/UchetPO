@@ -20,12 +20,13 @@ namespace UchetPO
         }
 
         public static string Name;
-        public static string Catalog = @"UchetPO";
-        public static string Server = "DESKTOP-2CITAU1\\SQLEXPRESS";
-        public static string Autolog;
-        public static string Autopass;
+        public static string Catalog = "UchetPO";
+        public static string Server;
+        public static string Version;
         public static string Id_Acc;
-        private static MainMenu MainMenu;
+        public static string Acc_Pass;
+       // public static string pdkl = "Data Source=" + Server + "\\" + Version + ";Initial Catalog=" + Catalog + ";Integrated Security=True";
+        //public static string pdkl = @"Data Source=DESKTOP-2CITAU1\SQLEXPRESS;Initial Catalog=UchetPO;Persist Security Info=True";
 
     }
 }

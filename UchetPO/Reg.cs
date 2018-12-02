@@ -4,13 +4,16 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using md5Crypt;
 using praktikaProject.Presenter;
+using Microsoft.Win32;
 
 namespace UchetPO
 {
     public partial class Reg : Form
     {
+        string background;
         SqlConnection connect;
-        string pdkl = @"Data Source=" + Program.Server + ";Initial Catalog = " + Program.Catalog + ";Persist Security Info=True;User ID=sa; Password =12345678";
+        //string pdkl = @"Data Source=" + Program.Server + Program.Version + ";Initial Catalog = " + Program.Catalog + ";Persist Security Info=True;User ID=sa; Password =12345678";
+        public string pdkl = "Data Source=" + Program.Server + "\\" + Program.Version + ";Initial Catalog=" + Program.Catalog + ";Integrated Security=True";
         public Reg()
         {
             InitializeComponent();
@@ -44,17 +47,13 @@ namespace UchetPO
 
         private async void Registration_Click(object sender, EventArgs e)
         {
-            Program.Autolog = LoginBox.Text;
-            Program.Autopass = PasswordBox.Text;
-            string pdkl = @"Data Source=" + Program.Server + ";Initial Catalog = " + Program.Catalog + ";Persist Security Info=True;User ID=sa; Password =12345678";
-            //MobilPanel.Show();
-            //AuthPanel.Hide();
+
             try
             {
-                if (!string.IsNullOrEmpty(LoginBox.Text) && !string.IsNullOrWhiteSpace(LoginBox.Text) &&
-                   !string.IsNullOrEmpty(NameBox.Text) && !string.IsNullOrWhiteSpace(NameBox.Text) &&
+                if (!string.IsNullOrEmpty(NameBox.Text) && !string.IsNullOrWhiteSpace(NameBox.Text) &&
                    !string.IsNullOrEmpty(MobilBox.Text) && !string.IsNullOrWhiteSpace(MobilBox.Text) &&
-                   !string.IsNullOrEmpty(PasswordBox.Text) && !string.IsNullOrWhiteSpace(PasswordBox.Text))
+                   !string.IsNullOrEmpty(RepeatPassword.Text) && !string.IsNullOrWhiteSpace(RepeatPassword.Text) &&
+                   (MobilBox.MaskFull) && LoginBox.TextLength < 6 && PasswordBox.TextLength < 8)
                 {
                     SqlCommand command = new SqlCommand("INSERT INTO [Account] (Login, Password, Name, Mobile) VALUES (@Login, @Password, @Name, @Mobile)", connect);
                     command.Parameters.AddWithValue("Login", LoginBox.Text);
@@ -74,9 +73,9 @@ namespace UchetPO
                 }
                 else
                 {
-                    MessageBox.Show("Все поля должны быть заполнены!");
+                    MessageBox.Show("Все поля должны быть заполнены! Логин должен быть не менее 6 символов. Пароль должен быть не менее 8 символов.");
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -89,7 +88,6 @@ namespace UchetPO
             SecondMessage.Show();
             SecondMessageText.Show();
             SecondMessageText.Text = "Код: " + CodeBox.Text;
-
             ThirstMessage.Show();
             ThirstMessageText.Show();
         }
@@ -117,9 +115,36 @@ namespace UchetPO
 
         private async void Reg_Load(object sender, EventArgs e)
         {
-            connect = new SqlConnection(pdkl);
-            await connect.OpenAsync();
-            SqlDataReader sqlReader = null;
+            try
+            {
+                connect = new SqlConnection(pdkl);
+                await connect.OpenAsync();
+            }
+            catch
+            {
+
+            }
+
+            try
+            {
+                RegistryKey currentUserKey = Registry.CurrentUser;
+                RegistryKey RK = currentUserKey.CreateSubKey("Design");
+                background = RK.GetValue("BackColor").ToString();
+                BackColor = ColorTranslator.FromHtml(background);
+                RK.Close();
+                BackColor = ColorTranslator.FromHtml(background);
+                LoginBox.BackColor = ColorTranslator.FromHtml(background);
+                PasswordBox.BackColor = ColorTranslator.FromHtml(background);
+                RepeatPassword.BackColor = ColorTranslator.FromHtml(background);
+                NameBox.BackColor = ColorTranslator.FromHtml(background);
+                MobilBox.BackColor = ColorTranslator.FromHtml(background);
+                AuthPanel.BackColor = ColorTranslator.FromHtml(background);
+                Registration.BackColor = ColorTranslator.FromHtml(background);
+            }
+            catch
+            {
+
+            }
         }
     }
 }

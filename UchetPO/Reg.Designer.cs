@@ -40,7 +40,6 @@
             this.EmailLabel = new System.Windows.Forms.Label();
             this.NameImageBox = new System.Windows.Forms.PictureBox();
             this.NameBox = new System.Windows.Forms.TextBox();
-            this.HelpBox = new System.Windows.Forms.PictureBox();
             this.RepeatKeyBox = new System.Windows.Forms.PictureBox();
             this.ExitButton = new System.Windows.Forms.Button();
             this.PromptPass = new System.Windows.Forms.PictureBox();
@@ -74,7 +73,6 @@
             this.AuthPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MobilePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NameImageBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HelpBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepeatKeyBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PromptPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KeyBox)).BeginInit();
@@ -102,7 +100,6 @@
             this.AuthPanel.Controls.Add(this.EmailLabel);
             this.AuthPanel.Controls.Add(this.NameImageBox);
             this.AuthPanel.Controls.Add(this.NameBox);
-            this.AuthPanel.Controls.Add(this.HelpBox);
             this.AuthPanel.Controls.Add(this.RepeatKeyBox);
             this.AuthPanel.Controls.Add(this.ExitButton);
             this.AuthPanel.Controls.Add(this.PromptPass);
@@ -135,6 +132,7 @@
             this.MobilBox.Location = new System.Drawing.Point(127, 452);
             this.MobilBox.Mask = "+7 (999) 999-99-99";
             this.MobilBox.Name = "MobilBox";
+            this.MobilBox.PromptChar = '*';
             this.MobilBox.Size = new System.Drawing.Size(219, 26);
             this.MobilBox.TabIndex = 30;
             // 
@@ -236,16 +234,6 @@
             this.NameBox.Size = new System.Drawing.Size(219, 26);
             this.NameBox.TabIndex = 19;
             // 
-            // HelpBox
-            // 
-            this.HelpBox.Image = ((System.Drawing.Image)(resources.GetObject("HelpBox.Image")));
-            this.HelpBox.Location = new System.Drawing.Point(367, 552);
-            this.HelpBox.Name = "HelpBox";
-            this.HelpBox.Size = new System.Drawing.Size(48, 47);
-            this.HelpBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.HelpBox.TabIndex = 18;
-            this.HelpBox.TabStop = false;
-            // 
             // RepeatKeyBox
             // 
             this.RepeatKeyBox.Image = ((System.Drawing.Image)(resources.GetObject("RepeatKeyBox.Image")));
@@ -305,6 +293,7 @@
             // Registration
             // 
             this.Registration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.Registration.Enabled = false;
             this.Registration.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.Registration.FlatAppearance.BorderSize = 0;
             this.Registration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -624,7 +613,6 @@
             this.AuthPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MobilePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NameImageBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HelpBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepeatKeyBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PromptPass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KeyBox)).EndInit();
@@ -665,7 +653,6 @@
         private System.Windows.Forms.PictureBox NameImageBox;
         private System.Windows.Forms.Label Line4;
         private System.Windows.Forms.TextBox NameBox;
-        private System.Windows.Forms.PictureBox HelpBox;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label RepeatPassLabel;
         private System.Windows.Forms.Label PassLabel;
